@@ -1,11 +1,11 @@
 const fs = require('fs');
 var parser = require('xml2json');
-const inputFile = './data.xml'
+const inputFile = './input.xml'
 const outputFile = 'result.csv'
 
-fs.readFile( input, function(err, data) {
+fs.readFile(inputFile, function(err, data) {
     var json = JSON.parse(parser.toJson(data));
-    var list = json.testsuite.testcase;
+    var list = json['test-suite']['test-case'];
     var out = '';
     for(var x=0;x<list.length;++x){
         var obj = list[x];
